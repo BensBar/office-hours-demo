@@ -42,6 +42,17 @@ Open: https://github.com/BensBar/catalyst-pod3-demo/settings/copilot/coding_agen
 - Save to `~/Desktop/catalyst-pod3-backup.mov`
 - This is your safety net if either feature is slow tomorrow
 
+### 5. **Pre-warm a Codespace 10 min before the call** (tomorrow, not tonight)
+
+- Open https://github.com/BensBar/catalyst-pod3-demo → green **Code** button → **Codespaces** → **Create codespace on `feat/add-todo-post`**
+- Wait for VS Code to load in the browser (~60s first time)
+- Open Copilot Chat panel, send one test message ("hello") to confirm it's signed in
+- Leave the tab open. Don't refresh.
+
+### 6. Backup — local VS Code (tonight)
+
+Have local VS Code open with the repo cloned on `feat/add-todo-post`, Copilot Chat signed in. Only used if the Codespace is slow on the day.
+
 ## If something fails
 
 **Coding agent button missing on Issue #2:**
