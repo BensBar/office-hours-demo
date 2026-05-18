@@ -1,61 +1,57 @@
-# Tonight's setup checklist
+# Tonight — what's left (10 min)
 
-Run these in order. Total time: ~20 min.
+✅ Repo created: https://github.com/BensBar/catalyst-pod3-demo
+✅ Issue #1 (POST handler context)
+✅ Issue #2 (dark mode — Demo 2 target)
+✅ PR #3 (rough POST handler — Demo 1 target)
 
-```bash
-cd ~/catalyst-pod3-demo
+## What you still need to do (browser, ~10 min)
 
-# 1. Verify it runs locally (smoke test)
-npm install
-( npm run dev --workspace server & )
-sleep 2
-curl -s http://localhost:3001/api/todos | head
-kill %1 2>/dev/null || true
+### 1. Enable Copilot coding agent on your account (one-time)
 
-# 2. Initial commit on main
-git add -A
-git commit -m "initial: catalyst pod 3 demo (todo app)"
+Open: https://github.com/settings/copilot/features
 
-# 3. Create the GitHub repo (choose org/user as needed)
-# Internal-visible is fine for Emerson tenant; public works too.
-gh repo create bensbar-emerson/catalyst-pod3-demo \
-  --internal \
-  --description "Catalyst 2.0 Session 1 Pod 3 demo" \
-  --source . \
-  --push
+- **Copilot coding agent** → set to **Enabled**
+- This is an account-level setting; it unlocks the agent for any repo you own
 
-# 4. Seed Issues #1, #2 and PR #1
-./scripts/seed-github.sh
+### 2. Verify Copilot is on for this repo
 
-# 5. Enable Copilot features (do this in the browser):
-#    Settings → Code, planning, automation → Copilot
-#    - Enable "Copilot code review"
-#    - Enable "Copilot coding agent"
-#    https://github.com/bensbar-emerson/catalyst-pod3-demo/settings/copilot
+Open: https://github.com/BensBar/catalyst-pod3-demo/settings/copilot/coding_agent
 
-# 6. Dry-run Lab 2 (THE most important pre-flight step)
-#    - Open Issue #2 in browser
-#    - Assign @copilot
-#    - Wait 2-6 min for draft PR
-#    - If it opens, you're good. If it doesn't, see troubleshooting below.
+- Should show "Coding agent enabled"
+- If you see a setup prompt, follow it (~30 seconds)
 
-# 7. Record your dry-run with QuickTime (Cmd+Shift+5 → Record Selected Portion)
-#    Save as catalyst-pod3-lab2-backup.mov on your Desktop.
-#    This is your safety net for tomorrow.
-```
+### 3. Dry-run BOTH demos end-to-end (15 min — the one step you cannot skip)
 
-## Troubleshooting
+**Demo 1 — Copilot review:**
+- Open https://github.com/BensBar/catalyst-pod3-demo/pull/3
+- Sidebar → Reviewers → click "Copilot"
+- Wait 30-90 sec for inline comments
+- ✅ If you see at least 3 inline comments, you're good
 
-**Agent doesn't pick up Issue #2:**
-- Check repo Settings → Copilot → coding agent is on
-- Check Actions are enabled (Settings → Actions → Allow all actions)
-- Check you have Copilot Enterprise/Business seat and your org allows agent
-- Try the "Assign to Copilot" button on the issue page directly (sometimes more reliable than @copilot mention)
+**Demo 2 — Coding agent:**
+- Open https://github.com/BensBar/catalyst-pod3-demo/issues/2
+- Sidebar → Assignees → click "Copilot" (or use the "Assign to Copilot" button)
+- Wait 2-6 min — a draft PR should open automatically
+- ✅ If a draft PR opens with code that touches `web/src/Header.jsx`, you're good
 
-**`gh repo create` errors with "name already exists":**
-- Pick a different slug, e.g. `bensbar-emerson/catalyst-pod3-demo-2`
-- Update the README and seed script if you change the slug
+### 4. Record your dry-run as backup (5 min)
 
-**Branch protection blocks the agent PR:**
-- Settings → Branches → main → ensure "Require signed commits" is OFF
-- Ensure no required status checks on a brand-new repo with no CI yet
+- QuickTime → File → New Screen Recording (or Cmd+Shift+5)
+- Record yourself doing Demo 1 + Demo 2 once more
+- Save to `~/Desktop/catalyst-pod3-backup.mov`
+- This is your safety net if either feature is slow tomorrow
+
+## If something fails
+
+**Coding agent button missing on Issue #2:**
+- Account-level setting (step 1) probably isn't on yet
+- Or your Copilot subscription tier doesn't include agent — check https://github.com/settings/billing
+
+**Agent opens an empty PR:**
+- Comment on the PR with a corrective prompt — agent will iterate. This is a *great* moment to show live tomorrow.
+
+**Copilot review doesn't add comments:**
+- Reload after 2 min
+- If still nothing: https://github.com/settings/copilot — verify Copilot is active on your account
+
