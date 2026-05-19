@@ -34,13 +34,21 @@ app.get("/api/todos", (_req, res) => {
 });
 
 app.post("/api/todos", (req, res) => {
-  const body = req.body;
-  const title = body.title;
+  const body = req.body ?? {};
+  const { title } = body;
+
+  if (
+    typeof title !== "string" ||
+    title.trim().length === 0 ||
+    title.length > 200
+  ) {
+    return res.status(400).json({ error: "Invalid title" });
+  }
 
   const todos = readTodos();
   const newTodo = {
     id: Math.floor(Math.random() * 999999),
-    title: title,
+    title: title.trim(),
     done: false
   };
   todos.push(newTodo);
