@@ -29,6 +29,18 @@ function writeTodos(todos) {
   fs.writeFileSync(DATA_FILE, JSON.stringify(todos, null, 2));
 }
 
+function getNextTodoId(todos) {
+  const maxId = todos.reduce((max, todo) => {
+    if (Number.isInteger(todo.id) && todo.id > max) {
+      return todo.id;
+    }
+
+    return max;
+  }, 0);
+
+  return maxId + 1;
+}
+
 app.get("/api/todos", (_req, res) => {
   res.json(readTodos());
 });
@@ -45,16 +57,21 @@ app.post("/api/todos", (req, res) => {
     return res.status(400).json({ error: "Invalid title" });
   }
 
-  const todos = readTodos();
-  const newTodo = {
-    id: Math.floor(Math.random() * 999999),
-    title: title.trim(),
-    done: false
-  };
-  todos.push(newTodo);
-  writeTodos(todos);
+  try {
+    const todos = readTodos();
+    const newTodo = {
+      id: getNextTodoId(todos),
+      title: title.trim(),
+      done: false
+    };
+    todos.push(newTodo);
+    writeTodos(todos);
 
-  res.send(newTodo);
+    return res.status(201).json(newTodo);
+  } catch (error) {
+    console.error("Failed to create todo", error);
+    return res.status(500).json({ error: "Failed to create todo" });
+  }
 });
 
 app.get("/health", (_req, res) => res.json({ ok: true }));
