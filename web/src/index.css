@@ -32,3 +32,7 @@ main h2 { font-size: 1.5rem; margin-top: 0; }
 ul { list-style: none; padding: 0; }
 li { padding: .5rem 0; border-bottom: 1px solid #f3f4f6; }
 li.done { color: var(--muted); text-decoration: line-through; }
+
+.search-bar { display: flex; gap: .5rem; margin-bottom: 1rem; }
+.search-bar input { flex: 1; padding: .4rem .6rem; border: 1px solid #d1d5db; border-radius: .375rem; font-size: 1rem; }
+.search-bar button { padding: .4rem .75rem; border: 1px solid #d1d5db; border-radius: .375rem; background: #f9fafb; cursor: pointer; }
