@@ -3,7 +3,7 @@
 # Run AFTER `gh repo create` and an initial push of main.
 #
 # Usage:
-#   cd ~/catalyst-pod3-demo
+#   cd ~/office-hours-demo
 #   ./scripts/seed-github.sh
 #
 # Requires: gh CLI authenticated, current directory is a clone of the target repo.
@@ -49,7 +49,7 @@ echo "==> Creating branch feat/add-todo-post with rough implementation"
 git checkout -b feat/add-todo-post
 cp workshop/pr-1-server-index.js server/index.js
 git add server/index.js
-git -c user.name="Pod 3 Dev" -c user.email="pod3@example.com" \
+git -c user.name="Office Hours Dev" -c user.email="office-hours@example.com" \
   commit -q -m "feat: add POST /api/todos handler"
 git push -u origin feat/add-todo-post
 

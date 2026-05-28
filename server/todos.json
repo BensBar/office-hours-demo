@@ -1,5 +1,5 @@
 [
-  { "id": 1, "title": "Ship Catalyst 2.0 Session 1", "done": false },
+  { "id": 1, "title": "Prep the next office hours session", "done": false },
   { "id": 2, "title": "Migrate one repo from ADO to GitHub", "done": false },
   { "id": 3, "title": "Try Copilot coding agent on a real ticket", "done": false }
 ]

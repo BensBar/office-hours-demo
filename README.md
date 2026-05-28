@@ -1,6 +1,6 @@
-# catalyst-pod3-demo
+# office-hours-demo
 
-Demo repo for **Catalyst 2.0 — Session 1 (Pod 3)** on May 19, 2026.
+Demo repo for **GitHub Copilot office hours**.
 
 A tiny Express + React TODO app used as the workshop sandbox for two labs:
 
