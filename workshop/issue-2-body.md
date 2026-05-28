@@ -16,4 +16,4 @@ Users want a dark mode for the TODO app. Add a toggle in the header that switche
 - `ThemeProvider` is defined but not yet wired into the app — you'll need to wrap `<App />` with it in `src/main.jsx`.
 - Use `prefers-color-scheme` as the initial default if no choice is saved.
 
-> **Workshop note:** this issue is intended to be assigned to Copilot coding agent during Catalyst 2.0 Session 1, Lab 2.
+> **Workshop note:** this issue is intended to be assigned to Copilot coding agent during the office hours demo, Lab 2.

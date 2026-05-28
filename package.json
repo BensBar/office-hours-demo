@@ -1,7 +1,7 @@
 {
-  "name": "catalyst-pod3-demo",
+  "name": "office-hours-demo",
   "version": "0.1.0",
   "private": true,
   "workspaces": ["server", "web"],
-  "description": "Catalyst 2.0 Session 1 demo repo for Pod 3"
+  "description": "GitHub Copilot office hours demo repo"
 }
