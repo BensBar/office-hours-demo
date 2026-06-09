@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "./Header.jsx";
+import TodoList from "./TodoList.jsx";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -19,17 +20,7 @@ export default function App() {
       <Header />
       <main>
         <h2>Todos</h2>
-        {loading ? (
-          <p>Loading…</p>
-        ) : (
-          <ul>
-            {todos.map((t) => (
-              <li key={t.id} className={t.done ? "done" : ""}>
-                {t.title}
-              </li>
-            ))}
-          </ul>
-        )}
+        {loading ? <p>Loading…</p> : <TodoList todos={todos} />}
       </main>
     </div>
   );
